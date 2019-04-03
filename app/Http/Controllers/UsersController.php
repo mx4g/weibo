@@ -12,12 +12,18 @@ class UsersController extends Controller
     {
         //除了此处指定的动作以外，所有其他动作都必须登录用户才能访问
         $this->middleware('auth', [            
-            'except' => ['create', 'store']
+            'except' => ['show','create', 'store', 'index']
         ]);
 
         $this->middleware('guest', [
             'only' => ['create']
         ]);
+    }
+    
+    public function index()
+    {
+        $users = User::paginate(10);
+        return view('users.index', compact('users'));
     }
     
     public function create()
