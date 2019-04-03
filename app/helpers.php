@@ -1,5 +1,5 @@
 <?php
-
+//该页面是判断用本地MySql数据库，还是服务器 PostgreSql数据库
 function get_db_config()
 {
     if (getenv('IS_IN_HEROKU')) {
