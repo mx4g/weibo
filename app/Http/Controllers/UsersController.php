@@ -16,9 +16,10 @@ class UsersController extends Controller
             'except' => ['show','create', 'store', 'index', 'confirmEmail']
         ]);
 
-        $this->middleware('guest', [
-            'only' => ['create']
-        ]);
+        // //表示游客可以打开创建页面
+        // $this->middleware('guest', [
+        //     'only' => ['create']
+        // ]);
     }
     
     public function index()
