@@ -12,6 +12,12 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
+    //在用户模型中，指明一个用户拥有多条微博。一对多
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }   
+
     /**
      * The attributes that are mass assignable.
      *
