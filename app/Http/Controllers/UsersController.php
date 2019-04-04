@@ -94,7 +94,7 @@ class UsersController extends Controller
         return back();
     }
 
-    
+    //发送邮件
     protected function sendEmailConfirmationTo($user)
     {
         $view = 'emails.confirm';
@@ -107,6 +107,7 @@ class UsersController extends Controller
         });
     }
     
+    //注册激活
     public function confirmEmail($token)
     {
         $user = User::where('activation_token', $token)->firstOrFail();
@@ -119,4 +120,6 @@ class UsersController extends Controller
         session()->flash('success', '恭喜你，激活成功！');
         return redirect()->route('users.show', [$user]);
     }
+
+
 }
